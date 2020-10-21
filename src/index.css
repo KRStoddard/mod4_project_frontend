@@ -5,9 +5,73 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+  background-image: url("./images/otherbackground.jpg");
+  background-color: #452463;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+} 
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.container-fluid {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  overflow: scroll;
+}
+
+.card {
+  margin: 15px;
+  scroll-behavior: smooth;
+  color: rgb(56, 31, 77);
+  width: 18rem;
+  
+}
+
+.navbar-custom {
+  background-color: rgb(56, 31, 77);
+  color: white;
+}
+
+.form-group {
+  height: 100%;
+  width: 100%
+}
+
+input {
+  margin: 5px;
+}
+
+.edit-form {
+  height: 300px;
+  width: 50%;
+  background-color:  rgba(56, 31, 77, .75);
+  margin-top: 5%;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.form-control {
+  width: 100%;
+}
+
+#area {
+  margin-left: 4px;
+}
+
+.form-group button {
+  margin: 5%;
+}
+
+.btn-primary {
+  margin: 5px;
 }
