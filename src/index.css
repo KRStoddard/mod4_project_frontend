@@ -75,3 +75,11 @@ input {
 .btn-primary {
   margin: 5px;
 }
+
+.dropdown-item:hover {
+  color: #0157B3;
+}
+
+.formlink {
+  color: white;
+}

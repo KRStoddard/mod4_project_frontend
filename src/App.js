@@ -9,6 +9,7 @@ import ShowNote from './ShowNote'
 import EditNote from './EditNote'
 import DeleteNote from './DeleteNote'
 import NewNote from './NewNote'
+import NewAccount from './NewAccount'
 
 const App = () => {
 
@@ -21,6 +22,7 @@ const App = () => {
         <Route path='/notes/edit/:id' render={(props) => <EditNote {...props}/>}/>
         <Route path='/notes/delete/:id' render={(props) => <DeleteNote {...props}/>}/>
         <Route path='/notes/new' component={NewNote}/>
+        <Route path='/newaccount' component={NewAccount}/>
         <Route path='/notes/:id' component={ShowNote} />
       </Switch>
     </div>

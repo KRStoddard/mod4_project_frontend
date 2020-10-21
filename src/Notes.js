@@ -24,9 +24,14 @@ class Notes extends React.Component{
         )
     }
     componentDidMount(){
+        if(!this.props.user.id){
+            this.props.history.push('/login')
+        }
         fetch(`http://localhost:3001/notes`)
         .then(resp => resp.json())
-        .then(notes => this.props.showNotes(notes))
+        .then(notes => {
+            notes = notes.filter(note => note.user_id === this.props.user.id)
+            this.props.showNotes(notes)})
     }
     render(){
         return (
@@ -39,7 +44,8 @@ class Notes extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        notes: state.notes
+        notes: state.notes,
+        user: state.user
     }
 }
 
