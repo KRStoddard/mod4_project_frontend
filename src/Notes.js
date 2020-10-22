@@ -10,9 +10,9 @@ class Notes extends React.Component{
 
     renderNotes = () => {
         let notes = this.props.notes
-        let search = this.props.search
+        let search = this.props.search.split(' ').join('').toLowerCase()
         if (this.props.search.length > 0){
-            notes = notes.filter(note => note.title.includes(search) || note.content.includes(search) || note.tags.map(tag => tag.name).join('#').includes(search))
+            notes = notes.filter(note => note.title.split(' ').join('').toLowerCase().includes(search) || note.content.split(' ').join('').toLowerCase().includes(search) || note.tags.map(tag => tag.name).join('#').toLowerCase().includes(search))
         }
         return notes.map(note => {
             return <Note key={note.id} note={note} />
