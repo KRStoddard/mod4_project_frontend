@@ -6,7 +6,8 @@ class EditNote extends React.Component{
 
     state = {
         title: "",
-        content: ""
+        content: "",
+        tags: ""
     }
 
     componentDidMount() {
@@ -28,7 +29,9 @@ class EditNote extends React.Component{
 
         fetch(`http://localhost:3001/notes/${this.props.match.params.id}`)  
         .then(resp => resp.json())
-        .then(note => this.setState({"title": note.title, "content": note.content}))
+        .then(note => {
+            const tags = note.tags.map(tag => tag.name).join(', ')
+            this.setState({"title": note.title, "content": note.content, tags })})
     }
 
     saveChanges = e => {
@@ -58,7 +61,7 @@ class EditNote extends React.Component{
                 <div className="form-group">
                     <input onChange={this.saveChanges} name="title" className="form-control" type="text" value={this.state.title}></input>
                     <textarea onChange={this.saveChanges} name="content" className="form-control" type="text" rows="5" id="area" value={this.state.content}></textarea>
-                    <textarea onChange={this.saveChanges} name="tags" className="form-control" type="text" rows="3" id="area" placeholder="Your, Tags, Here"></textarea>
+                    <textarea onChange={this.saveChanges} name="tags" className="form-control" type="text" rows="3" id="area" value={this.state.tags}></textarea>
                     <button type="submit">Submit</button>
                 </div>
             </form>

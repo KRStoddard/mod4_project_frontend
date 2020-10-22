@@ -8,14 +8,23 @@ class ShowNote extends React.Component{
 
 
     renderNote = () => {
-        const {id, title, content} = this.props.note
+        console.log(this.props.note.tags)
+        const {id, title, content, tags} = this.props.note
         const editLink = `/notes/edit/${id}`
         const deleteLink = `/notes/delete/${id}`
+        const tagList = () => {
+            return tags.map(tag => {return `#${tag.name} ` })}
+
         return (
             <div className="card">
                 <div className="card-body">
                     <h5 className="card-title">{title}</h5>
                     <p className="card-text">{content}</p>
+                    {tags?
+                    <div className="card-text">
+                        {tagList()}
+                    </div>
+                    : null}
                     <Link className="card-link" to={editLink}>Edit</Link>
                     <Link className="card-link" to={deleteLink}>Delete</Link>
                 </div>
