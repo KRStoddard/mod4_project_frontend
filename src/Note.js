@@ -2,14 +2,19 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 const Note = props => {
-    const {id, title, content} = props.note
+    const {id, title, content, tags} = props.note
     const link = `/notes/${id}`
+    const tagList = () => {
+    return tags.map(tag => {return `#${tag.name} ` })}
     return(
-        <div className="card" style={{width: "18rem"}}>
-            <div className="card-body">
+        <div className="card">
+            <div className="card-body card-body-index overflow-hidden">
             <h5 className="card-title">{title}</h5>
-            <p className="card-text">{content}</p>
+            <p className="card-text card-text-index">{content}</p>
             <Link className="card-link" to={link}>View</Link>
+            <div className="card-text">
+                {tagList()}
+            </div>
             </div>
         </div>
     )

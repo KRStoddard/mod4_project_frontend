@@ -30,8 +30,16 @@ code {
   margin: 15px;
   scroll-behavior: smooth;
   color: rgb(56, 31, 77);
-  width: 18rem;
+  width: 25rem;
   
+  
+}
+
+
+
+.card-text-index {
+  max-height: 10rem;
+  overflow: hidden;
 }
 
 .navbar-custom {
@@ -40,17 +48,21 @@ code {
 }
 
 .form-group {
-  height: 100%;
-  width: 100%
+  height: 30rem;
+  width: 30rem;
 }
 
 input {
   margin: 5px;
 }
 
+textarea {
+  margin: 5px;
+}
+
 .edit-form {
-  height: 300px;
-  width: 50%;
+  min-height: 15rem;
+  width: 35rem;
   background-color:  rgba(56, 31, 77, .75);
   margin-top: 5%;
   display: flex;
@@ -59,6 +71,8 @@ input {
   align-items: center;
   color: white;
 }
+
+
 
 .form-control {
   width: 100%;
@@ -82,4 +96,29 @@ input {
 
 .formlink {
   color: white;
+}
+
+.searchbtn, .searchbar {
+  border-radius: 5px;
+}
+
+.searchbtn {
+  height: 75%;
+}
+
+.seachbar {
+  text-align: center;
+}
+
+.searchform {
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));;
+  
+}
+
+.container-fluid {
+  max-width: 100%;
 }

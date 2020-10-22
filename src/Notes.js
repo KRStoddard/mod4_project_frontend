@@ -3,12 +3,17 @@ import Note from './Note'
 import {connect} from 'react-redux'
 import {showNotes} from './actions/notes'
 import {Link} from 'react-router-dom'
+import {onLogin} from './actions/user'
 
 class Notes extends React.Component{
 
 
     renderNotes = () => {
-        return this.props.notes.map(note => {
+        let notes = this.props.notes
+        if (this.props.search.length > 0){
+            notes = notes.filter(note => note.title.includes(this.props.search) || note.content.includes(this.props.search) || note.tags.includes(this.props.search))
+        }
+        return notes.map(note => {
             return <Note key={note.id} note={note} />
         })
     }
@@ -24,18 +29,34 @@ class Notes extends React.Component{
         )
     }
     componentDidMount(){
-        if(!this.props.user.id){
+        const token = localStorage.getItem('userToken')
+        if (!token) {
             this.props.history.push('/login')
+        } else {
+            const reqObj = {
+                method: 'GET',
+                headers: {'Authorization': `Bearer ${token}`}
+            }
+            fetch(`http://localhost:3001/current_user`, reqObj)
+            .then(resp => resp.json())
+            .then(user => {this.props.onLogin(user.user)})
         }
+
+
+        // if(!this.props.user.username){
+        //     this.props.history.push('/login')
+        // }
+
         fetch(`http://localhost:3001/notes`)
         .then(resp => resp.json())
         .then(notes => {
+            console.log(notes)
             notes = notes.filter(note => note.user_id === this.props.user.id)
             this.props.showNotes(notes)})
     }
     render(){
         return (
-            <div className="container-fluid">
+            <div className="container-fluid" id={this.props.view}>
                 {this.renderNotes()}
             </div>
         )
@@ -45,11 +66,14 @@ class Notes extends React.Component{
 const mapStateToProps = state => {
     return {
         notes: state.notes,
-        user: state.user
+        user: state.user,
+        view: state.view,
+        search: state.search
     }
 }
 
 const mapDispatchToProps = {
-    showNotes
+    showNotes,
+    onLogin
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Notes)

@@ -13,6 +13,24 @@ export default class DeleteNote extends React.Component{
         this.props.history.push(`/notes/${id}`)
     }
 
+    componentDidMount(){
+        const token = localStorage.getItem('userToken')
+        if (!token) {
+            this.props.history.push('/login')
+        } else {
+            const reqObj = {
+                method: 'GET',
+                headers: {'Authorization': `Bearer ${token}`}
+            }
+            fetch(`http://localhost:3001/current_user`, reqObj)
+            .then(resp => resp.json())
+            .then(user => {
+                if (!user.user){
+                    this.props.history('/login')
+                }})
+        }
+    }
+
     render(){
         return(
             <div className="container-fluid">

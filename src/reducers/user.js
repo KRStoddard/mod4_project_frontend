@@ -4,7 +4,7 @@
 const user = (state={}, action) => {
     switch(action.type) {
         case 'ON_LOGIN':
-            return action.user 
+            return action.user
         case 'ON_LOGOUT':
             return {}
         default:

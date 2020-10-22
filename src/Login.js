@@ -24,7 +24,8 @@ class Login extends React.Component{
             if (user.error) {
                 this.setState({error: user.error})
             } else {
-                this.props.onLogin(user)
+                localStorage.setItem('userToken', user.token)
+                this.props.onLogin(user.user)
                 this.props.history.push('/notes')
             }
         })
