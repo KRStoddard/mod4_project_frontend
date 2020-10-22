@@ -30,9 +30,14 @@ code {
   margin: 15px;
   scroll-behavior: smooth;
   color: rgb(56, 31, 77);
-  width: 25rem;
+  width: 45%;
   
-  
+}
+
+.indexcard {
+  max-width: 25rem;
+  min-width: 20rem;
+  height: 20rem;
 }
 
 
@@ -50,6 +55,11 @@ code {
 .form-group {
   height: 30rem;
   width: 30rem;
+}
+
+.user-form-group {
+  width: 15rem;
+  height: 15rem;
 }
 
 input {
@@ -72,6 +82,21 @@ textarea {
   color: white;
 }
 
+.tagspan {
+  background-color: rgba(56, 31, 77, .5);
+  margin: 5px;
+  color: white;
+  border-radius: 5px;
+  padding: 2px;
+}
+
+.tagsect {
+  border-top: 1px solid rgb(56, 31, 77);
+  border-bottom: 1px solid rgb(56, 31, 77);
+  margin-top: 5px;
+  height: 100%;
+  overflow: scroll;
+}
 
 
 .form-control {

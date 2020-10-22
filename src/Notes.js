@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 import {showNotes} from './actions/notes'
 import {Link} from 'react-router-dom'
 import {onLogin} from './actions/user'
-import note from './reducers/note'
 
 class Notes extends React.Component{
 
@@ -48,16 +47,14 @@ class Notes extends React.Component{
         }
 
 
-        // if(!this.props.user.username){
-        //     this.props.history.push('/login')
-        // }
+       
 
         fetch(`http://localhost:3001/notes`)
         .then(resp => resp.json())
         .then(notes => {
-            console.log(notes)
             notes = notes.filter(note => note.user_id === this.props.user.id)
-            this.props.showNotes(notes)})
+            this.props.showNotes(notes)
+        })
     }
     render(){
         return (
@@ -81,4 +78,7 @@ const mapDispatchToProps = {
     showNotes,
     onLogin
 }
+
+
+    
 export default connect(mapStateToProps, mapDispatchToProps)(Notes)

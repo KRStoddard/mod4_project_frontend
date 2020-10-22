@@ -16,6 +16,17 @@ import rootReducer from './reducers/index'
 
 const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
+// const savePosition = () => {
+//   let sidebar = document.querySelector('.container-fluid')
+//   let top = localStorage.getItem("sidebar-scroll")
+//   if (top !== null) {
+//       sidebar.scrollTop = parseInt(top, 10)
+//   }
+//   window.addEventListener("beforeunload", () => {
+//       localStorage.setItem("sidebar-scroll", sidebar.scrollTop)
+//   })
+// }
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
@@ -24,5 +35,9 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+
+
+
 
 

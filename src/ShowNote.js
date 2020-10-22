@@ -8,7 +8,6 @@ class ShowNote extends React.Component{
 
 
     renderNote = () => {
-        console.log(this.props.note.tags)
         const {id, title, content, tags} = this.props.note
         const editLink = `/notes/edit/${id}`
         const deleteLink = `/notes/delete/${id}`
@@ -21,7 +20,7 @@ class ShowNote extends React.Component{
                     <h5 className="card-title">{title}</h5>
                     <p className="card-text">{content}</p>
                     {tags?
-                    <div className="card-text">
+                    <div className="card-text tagsect">
                         {tagList()}
                     </div>
                     : null}

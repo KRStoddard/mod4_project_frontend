@@ -38,7 +38,7 @@ class Login extends React.Component{
                     <h2>Please Login</h2>
                     {<h4 style={{ color: 'red'}}>{this.state.error}</h4>}
                     <form onSubmit={this.loginHandler}>
-                        <div className="form-group">
+                        <div className="form-group user-form-group">
                             <input type="text" className="form-control" name="username" placeholder="username" />
                             <input type="password" className="form-control" name="password" placeholder="password"/>
                             <button type="submit" className="btn btn-primary">Login</button>
