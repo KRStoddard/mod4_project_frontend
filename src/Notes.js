@@ -4,15 +4,19 @@ import {connect} from 'react-redux'
 import {showNotes} from './actions/notes'
 import {Link} from 'react-router-dom'
 import {onLogin} from './actions/user'
+import note from './reducers/note'
 
 class Notes extends React.Component{
 
 
     renderNotes = () => {
         let notes = this.props.notes
-        let search = this.props.search.split(' ').join('').toLowerCase()
         if (this.props.search.length > 0){
-            notes = notes.filter(note => note.title.split(' ').join('').toLowerCase().includes(search) || note.content.split(' ').join('').toLowerCase().includes(search) || note.tags.map(tag => tag.name).join('#').toLowerCase().includes(search))
+            let search = this.props.search.split(' ')
+            search.forEach(search => {
+                search = search.toLowerCase()
+                notes = notes.filter(note => note.title.split(' ').join('').toLowerCase().includes(search) || note.content.split(' ').join('').toLowerCase().includes(search) || note.tags.map(tag => tag.name).join('').toLowerCase().includes(search))
+            })
         }
         return notes.map(note => {
             return <Note key={note.id} note={note} />
