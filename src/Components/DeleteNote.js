@@ -2,17 +2,21 @@ import React from 'react'
 
 export default class DeleteNote extends React.Component{
 
+    //deleteHandler allows for deletion of note if yes is pressed
     deleteHandler = () => {
         const id = this.props.match.params.id
         fetch(`http://localhost:3001/notes/${id}`, {method: 'DELETE'})
         .then(() => this.props.history.push(`/notes`))
     }
 
+    //if you press no, the note is not deleted and you are redirected back
+    //to note
     noHandler = () => {
         const id = this.props.match.params.id
         this.props.history.push(`/notes/${id}`)
     }
 
+    //componentDidMount handles auth validation 
     componentDidMount(){
         const token = localStorage.getItem('userToken')
         if (!token) {
@@ -31,6 +35,7 @@ export default class DeleteNote extends React.Component{
         }
     }
 
+    //displays box asking if you want to delete note
     render(){
         return(
             <div className="container-fluid">

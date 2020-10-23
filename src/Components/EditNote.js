@@ -4,12 +4,15 @@ import {connect} from 'react-redux'
 
 class EditNote extends React.Component{
 
+    //local state to handle input changes
     state = {
         title: "",
         content: "",
         tags: ""
     }
 
+    //componentDidMount handles auth validation
+    //also fetches note info based on url
     componentDidMount() {
         const token = localStorage.getItem('userToken')
         if (!token) {
@@ -34,10 +37,14 @@ class EditNote extends React.Component{
             this.setState({"title": note.title, "content": note.content, tags })})
     }
 
+    //saveChanges handles the changes to form input
+    //and updates state to reflect
     saveChanges = e => {
        this.setState({[e.target.name]: e.target.value})
     }
 
+    //handleSubmit sends info to backend to update note
+    //it then redirects you to view the note you saved
     handleSubmit = e => {
         e.preventDefault()
         const reqObj = {
@@ -52,6 +59,7 @@ class EditNote extends React.Component{
             this.props.history.push(`/notes/${id}`)})
     }
 
+    //shows the edit form pre-populated with previous info
     render(){
         return(
             <div className="container-fluid">
@@ -71,11 +79,15 @@ class EditNote extends React.Component{
     }
 }
 
+//maps the state of Redux store to component's props
 const mapStateToProps = (state) => {
     return {
         note: state.note
     } 
 }
 
+//maps action to dispatch changes to Redux store to componenet's props
 const mapDispatchToProps = {showNote}
+
+//default exports editNote with Read and Dispatch connection to Redux store
 export default connect(mapStateToProps, mapDispatchToProps)(EditNote)

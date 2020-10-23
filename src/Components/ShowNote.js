@@ -5,8 +5,7 @@ import {connect} from 'react-redux'
 
 class ShowNote extends React.Component{
 
-
-
+    //renders note info
     renderNote = () => {
         const {id, title, content, tags} = this.props.note
         const editLink = `/notes/edit/${id}`
@@ -30,8 +29,9 @@ class ShowNote extends React.Component{
             </div>)
     }
 
+    //checks for auth token validity
+    //updates state to show note
     componentDidMount() {
-
         const token = localStorage.getItem('userToken')
         if (!token) {
             this.props.history.push('/login')
@@ -53,6 +53,7 @@ class ShowNote extends React.Component{
         .then(note => this.props.showNote(note))
     }
 
+    //renders note to DOM
     render(){
         return(
             <div className="container-fluid">
@@ -62,11 +63,15 @@ class ShowNote extends React.Component{
     }
 }
 
+//maps Redux store state to component's props
 const mapStateToProps = (state) => {
     return {
         note: state.note
     } 
 }
 
+//maps dispatch ability to component's props
 const mapDispatchToProps = {showNote}
+
+//default exports read and write connection to Redux Store for ShowNote component
 export default connect(mapStateToProps, mapDispatchToProps)(ShowNote)

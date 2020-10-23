@@ -5,9 +5,12 @@ import {onLogin} from '../actions/user'
 
 class NewAccount extends React.Component{
 
+    //local state to handle errors
     state = {
         error: null
     }
+
+    //submitHandler sends new user info to backend and returns it
     submitHandler = e => {
         const password = e.target.password.value
         e.preventDefault()
@@ -29,6 +32,7 @@ class NewAccount extends React.Component{
         })
     }
 
+    //loginHandler creates auth token and dispatches onLogin action
     loginHandler = (user, password) => {
         const reqObj = {
             method: 'POST',
@@ -49,6 +53,7 @@ class NewAccount extends React.Component{
         })
     }
 
+    //renders form for new account
     render(){
         return(
             <div className="container-fluid">
@@ -69,7 +74,10 @@ class NewAccount extends React.Component{
     }
 }
 
+//maps onLogin dispatch ability to component's props
 const mapDispatchToProps = {
     onLogin
 }
+
+//default exports NewAccount with map connection to Redux Store
 export default connect(null, mapDispatchToProps)(NewAccount)

@@ -5,11 +5,14 @@ import {Link} from 'react-router-dom'
 
 class Login extends React.Component{
 
-
+    //local state for error message
     state = {
         error: null
     }
 
+    //loginHandler creates new auth token if user exists
+    //it will then dispatch onLogin action
+    //if user doesn't exist, it shows error
     loginHandler = e => {
         e.preventDefault()
         const reqObj = {
@@ -31,6 +34,8 @@ class Login extends React.Component{
         })
         
     }
+
+    //renders form to login
     render(){
         return(
             <div className="container-fluid">
@@ -51,9 +56,12 @@ class Login extends React.Component{
     }
 }
 
+//maps dispatch action to component's props
 const mapDispatchToProps = {
     onLogin
 }
+
+//default exports Login componenet with Dispatch Redux store connection
 export default connect(null, mapDispatchToProps)(Login)
 
 

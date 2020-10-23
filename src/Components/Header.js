@@ -8,12 +8,14 @@ import {onSearch} from '../actions/search'
 
 class Header extends React.Component{
 
-
+    //logoutHandler removes token from localStorage
+    //it then executes handleLogout in the Redux Store
     logoutHandler = () => {
         localStorage.removeItem('userToken')
         this.props.onLogout()
     }
     
+    //renders navbar
     render(){
         return(
             <>
@@ -44,6 +46,7 @@ class Header extends React.Component{
     }
 }
 
+//maps redux store elements to component's props
 const mapStateToProps = (state) => {
     return {
         user: state.user,
@@ -51,6 +54,7 @@ const mapStateToProps = (state) => {
     } 
 }
 
+//maps dispatch actions to component's props
 const mapDispatchToProps = {
     onLogout,
     viewGrid,
@@ -58,4 +62,5 @@ const mapDispatchToProps = {
     onSearch
 }
 
+//default exports header component with Read and Dispatch Redux Store connections
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

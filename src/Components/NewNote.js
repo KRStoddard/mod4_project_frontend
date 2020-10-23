@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 
 class NewNote extends React.Component{
 
+    //handleSubmit sends new Note information to the backend
+    //it then sends user to the notes homepage
     handleSubmit = e => {
         e.preventDefault()
         const reqObj = {
@@ -15,6 +17,7 @@ class NewNote extends React.Component{
         
     }
 
+    
     componentDidMount(){
         const token = localStorage.getItem('userToken')
         if (!token) {
@@ -33,6 +36,7 @@ class NewNote extends React.Component{
         }
     }
 
+    //renders new note form
     render(){
         return(
             <div className="container-fluid">
@@ -52,10 +56,11 @@ class NewNote extends React.Component{
     }
 }
 
+//maps state of redux store to component's props
 const mapStateToProps = (state) => {
     return{
     user: state.user
     }
 }
-
+//default exports NewNote component with Read connection to Redux Store
 export default connect(mapStateToProps)(NewNote)

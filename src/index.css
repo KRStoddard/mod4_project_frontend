@@ -50,7 +50,9 @@ code {
   height: 20rem;
 }
 
-
+.card-text {
+  white-space: pre-wrap;
+}
 
 .card-text-index {
   max-height: 10rem;

@@ -12,6 +12,8 @@ import NewAccount from './NewAccount'
 
 const App = () => {
 
+  //display content based on url
+  //always displays header content
   return (
     <div className="App">
       <Header />

@@ -7,7 +7,7 @@ import {onLogin} from '../actions/user'
 
 class Notes extends React.Component{
 
-
+    //renders notes based on user and search terms
     renderNotes = () => {
         let notes = this.props.notes
         if (this.props.search.length > 0){
@@ -22,6 +22,7 @@ class Notes extends React.Component{
         })
     }
 
+    //renders display if user has no notes
     renderNoNotes = () => {
         return(
             <div className="card" style={{width: "18rem"}}>
@@ -32,6 +33,8 @@ class Notes extends React.Component{
             </div>
         )
     }
+
+    //handles auth token verification and fetching notes from backend
     componentDidMount(){
         const token = localStorage.getItem('userToken')
         if (!token) {
@@ -56,6 +59,8 @@ class Notes extends React.Component{
             this.props.showNotes(notes)
         })
     }
+
+    //renders container for all notes
     render(){
         return (
             <div className="container-fluid" id={this.props.view}>
@@ -65,6 +70,7 @@ class Notes extends React.Component{
     }
 }
 
+//maps ability to read state to component's props
 const mapStateToProps = state => {
     return {
         notes: state.notes,
@@ -74,12 +80,12 @@ const mapStateToProps = state => {
     }
 }
 
+//maps dispatch actions for Redux store to component's props
 const mapDispatchToProps = {
     showNotes,
     onLogin
 }
 
-
-    
+//default exports Notes component with read and dispatch Redux store connection
 export default connect(mapStateToProps, mapDispatchToProps)(Notes)
 

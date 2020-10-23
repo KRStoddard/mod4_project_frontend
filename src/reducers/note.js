@@ -1,5 +1,5 @@
-const initialValue = []
-const note = (state=initialValue, action) => {
+
+const note = (state=[], action) => {
     switch(action.type) {
         case 'SHOW_NOTE':
             return action.note
