@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
-import {showNote} from './actions/note'
+import {showNote} from '../actions/note'
 import {connect} from 'react-redux'
 
 class ShowNote extends React.Component{

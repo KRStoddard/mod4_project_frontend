@@ -1,5 +1,5 @@
 import React from 'react'
-import {onSearch} from './actions/search'
+import {onSearch} from '../actions/search'
 import {connect} from 'react-redux'
 
 class Search extends React.Component{

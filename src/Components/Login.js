@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {onLogin} from './actions/user'
+import {onLogin} from '../actions/user'
 import {Link} from 'react-router-dom'
 
 class Login extends React.Component{

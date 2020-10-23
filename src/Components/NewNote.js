@@ -42,7 +42,7 @@ class NewNote extends React.Component{
                         <div className="form-group">
                             <input  name="title" className="form-control" type="text" placeholder="Title"></input>
                             <textarea  name="content" className="form-control" type="text" rows="5" id="area" placeholder="Your Note Content"></textarea>
-                            <textarea name="tags" className="form-control" type="text" rows="3" id="area" placeholder="Your, Tags, Here"></textarea>
+                            <textarea name="tags" className="form-control" type="text" rows="3" id="area" placeholder="Your, Tags, Go, Here"/>
                             <button type="submit">Submit</button>
                         </div>
                     </form>

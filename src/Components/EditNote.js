@@ -1,5 +1,5 @@
 import React from 'react'
-import {showNote} from './actions/note'
+import {showNote} from '../actions/note'
 import {connect} from 'react-redux'
 
 class EditNote extends React.Component{

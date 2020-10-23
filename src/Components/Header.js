@@ -1,10 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
-import {onLogout} from './actions/user'
+import {onLogout} from '../actions/user'
 import Search from './Search'
-import {viewGrid, viewList} from './actions/view'
-import {onSearch} from './actions/search'
+import {viewGrid, viewList} from '../actions/view'
+import {onSearch} from '../actions/search'
 
 class Header extends React.Component{
 

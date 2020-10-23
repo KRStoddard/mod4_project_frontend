@@ -6,9 +6,9 @@ import 'bootstrap/dist/js/bootstrap.js';
 import $ from 'jquery';
 import Popper from 'popper.js';
 import './index.css';
-import App from './App';
+import App from './Components/App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter, Switch, Redirect, Link} from 'react-router-dom'
+import {BrowserRouter} from 'react-router-dom'
 import {createStore} from 'redux'
 import {Provider} from 'react-redux'
 import rootReducer from './reducers/index'

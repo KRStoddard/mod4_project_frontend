@@ -1,9 +1,9 @@
 import React from 'react'
 import Note from './Note'
 import {connect} from 'react-redux'
-import {showNotes} from './actions/notes'
+import {showNotes} from '../actions/notes'
 import {Link} from 'react-router-dom'
-import {onLogin} from './actions/user'
+import {onLogin} from '../actions/user'
 
 class Notes extends React.Component{
 
@@ -59,7 +59,7 @@ class Notes extends React.Component{
     render(){
         return (
             <div className="container-fluid" id={this.props.view}>
-                {this.renderNotes()}
+                {this.props.notes.length > 0 ? this.renderNotes() : this.renderNoNotes()}
             </div>
         )
     }
@@ -82,3 +82,4 @@ const mapDispatchToProps = {
 
     
 export default connect(mapStateToProps, mapDispatchToProps)(Notes)
+

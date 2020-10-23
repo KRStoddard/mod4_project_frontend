@@ -26,6 +26,11 @@ code {
   overflow: scroll;
 }
 
+.card-img-top {
+  max-width:100%;
+  height:auto;
+}
+
 .card {
   margin: 15px;
   scroll-behavior: smooth;

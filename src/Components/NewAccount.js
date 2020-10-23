@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
-import {onLogin} from './actions/user'
+import {onLogin} from '../actions/user'
 
 class NewAccount extends React.Component{
 
