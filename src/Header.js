@@ -16,7 +16,7 @@ class Header extends React.Component{
     render(){
         return(
             <>
-            <nav className="navbar sticky-top navbar-custom"  style={{backgroundColor: "rgba(56, 31, 77, 1)"}}>
+            <nav className="navbar sticky-top navbar-custom"  style={{backgroundColor: "rgba(18, 33, 46, .95)"}}>
                 <Link className="navbar-brand navbar-custom" to="/notes" >FlatNotes</Link>
                 <div className="d-flex justify-content-end">
                 {this.props.user.username ? 

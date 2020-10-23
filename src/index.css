@@ -5,8 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image: url("./images/otherbackground.jpg");
-  background-color: #452463;
+  background-image: url("./images/background.jpeg");
+  background-color: rgb(5, 29, 51);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;
@@ -29,7 +29,7 @@ code {
 .card {
   margin: 15px;
   scroll-behavior: smooth;
-  color: rgb(56, 31, 77);
+  color: rgb(5, 29, 51);
   width: 45%;
   
 }
@@ -48,7 +48,6 @@ code {
 }
 
 .navbar-custom {
-  background-color: rgb(56, 31, 77);
   color: white;
 }
 
@@ -73,7 +72,7 @@ textarea {
 .edit-form {
   min-height: 15rem;
   width: 35rem;
-  background-color:  rgba(56, 31, 77, .75);
+  background-color:  rgba(5, 29, 51, .75);
   margin-top: 5%;
   display: flex;
   flex-flow: column wrap;
@@ -83,7 +82,7 @@ textarea {
 }
 
 .tagspan {
-  background-color: rgba(56, 31, 77, .5);
+  background-color: rgba(5, 29, 51, .5);
   margin: 5px;
   color: white;
   border-radius: 5px;
@@ -91,8 +90,8 @@ textarea {
 }
 
 .tagsect {
-  border-top: 1px solid rgb(56, 31, 77);
-  border-bottom: 1px solid rgb(56, 31, 77);
+  border-top: 1px solid rgb(5, 29, 51);
+  border-bottom: 1px solid rgb(5, 29, 51);
   margin-top: 5px;
   height: 100%;
   overflow: scroll;
