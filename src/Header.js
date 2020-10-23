@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import {onLogout} from './actions/user'
 import Search from './Search'
 import {viewGrid, viewList} from './actions/view'
+import {onSearch} from './actions/search'
 
 class Header extends React.Component{
 
@@ -17,7 +18,7 @@ class Header extends React.Component{
         return(
             <>
             <nav className="navbar sticky-top navbar-custom"  style={{backgroundColor: "rgba(18, 33, 46, .95)"}}>
-                <Link className="navbar-brand navbar-custom" to="/notes" >FlatNotes</Link>
+                <Link onClick={() => {this.props.onSearch('')}}className="navbar-brand navbar-custom" to="/notes" >FlatNotes</Link>
                 <div className="d-flex justify-content-end">
                 {this.props.user.username ? 
                 <>
@@ -54,6 +55,7 @@ const mapDispatchToProps = {
     onLogout,
     viewGrid,
     viewList,
+    onSearch
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header)

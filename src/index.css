@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url("./images/background.jpeg");
-  background-color: rgb(5, 29, 51);
+  background-color: #303E4D;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100%;
@@ -31,6 +31,11 @@ code {
   scroll-behavior: smooth;
   color: rgb(5, 29, 51);
   width: 45%;
+  border-radius: 10px;
+    -webkit-box-shadow: 0 0 10px 5px rgb(5, 29, 51);
+    -moz-box-shadow: 0 0 10px 5px rgb(5, 29, 51);
+    box-shadow: 0 0 10px 5px rgb(5, 29, 51);
+ ;
   
 }
 
@@ -79,6 +84,7 @@ textarea {
   justify-content: center;
   align-items: center;
   color: white;
+  border-radius: 10px;
 }
 
 .tagspan {
@@ -95,6 +101,7 @@ textarea {
   margin-top: 5px;
   height: 100%;
   overflow: scroll;
+  padding-top: 2px;
 }
 
 
